@@ -1,0 +1,2 @@
+Q. Webpack not re-compiling on file change
+A. http://stackoverflow.com/questions/29722755/webpack-dev-server-does-not-watch-for-my-file-changes

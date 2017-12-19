@@ -5,29 +5,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-
-module.exports = {
+const config = {
     entry: {
         vendor: ['react', 'react-dom', 'react-redux', 'react-router', 'react-router-redux', 'redux'],
         app: path.resolve(__dirname, '../src/js/entry.js')
     },
-
     output: {
         path: path.resolve(__dirname, '../dist/'),
         filename: '[name].[hash].js'
     },
-
     devtool: 'source-map',
-
     module: {
         rules: [
-            // {
-            //     enforce: 'pre',
-            //     test: /\.(js|jsx)$/,
-            //     exclude: /node_modules/,
-            //     loader: 'eslint-loader'
-            // },
+            {
+                enforce: 'pre',
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                loader: 'eslint-loader'
+            },
             {
                 test: /\.(js|jsx)$/,
                 include: [
@@ -55,7 +50,6 @@ module.exports = {
             {test: /\.(png|jpg)$/,    use: 'url-loader?limit=8192'}
         ]
     },
-
     resolve: {
         extensions: ['.js', '.jsx'],
         modules: [
@@ -64,21 +58,16 @@ module.exports = {
             'node_modules'
         ]
     },
-
     plugins: [
-        // new BundleAnalyzerPlugin(),
-
         new HtmlWebpackPlugin({
             title: 'Boiler Plate',
             template: 'index.html',
             filename: 'index.html'
         }),
-
         new StyleLintPlugin({
             context: path.resolve(__dirname, '../src'),
             glob: 'src/**/*.s?(a|c)ss'
         }),
-
         new ExtractTextPlugin('styles/[name].css'),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor',
@@ -86,3 +75,5 @@ module.exports = {
         })
     ]
 };
+
+module.exports = config;

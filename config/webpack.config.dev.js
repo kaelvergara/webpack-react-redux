@@ -1,8 +1,8 @@
-'use strict';
-
 const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
 
-const config = Object.create(baseConfig);
+if (process.env.DISABLE_LINT) {
+    baseConfig.module.rules.splice(0,1);
+}
 
-module.exports = config;
+module.exports = baseConfig;

@@ -1,5 +1,5 @@
 const CompressionPlugin = require('compression-webpack-plugin');
-
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const webpack = require('webpack');
 const baseConfig = require('./webpack.config.base');
 
@@ -26,10 +26,14 @@ const prodPlugins = [
         asset: '[path].gz[query]',
         algorithm: 'gzip',
         test: /\.js$|\.css$|\.html$/,
-        threshold: 10240,
+        threshold: 0,
         minRatio: 0.8
     })
 ];
+
+if (process.env.ANALYZE) {
+    prodPlugins.push(new BundleAnalyzerPlugin());
+}
 
 config.plugins = config.plugins.concat(prodPlugins);
 

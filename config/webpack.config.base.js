@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const config = {
     entry: {
         vendor: ['react', 'react-dom', 'react-redux', 'react-router', 'react-router-redux', 'redux'],
-        app: path.resolve(__dirname, '../src/js/entry.js')
+        app: path.resolve(__dirname, '../src/app/app.js')
     },
     output: {
         path: path.resolve(__dirname, '../dist/'),
@@ -53,7 +53,7 @@ const config = {
     resolve: {
         extensions: ['.js', '.jsx'],
         modules: [
-            path.join(__dirname, '../src/js'),
+            path.join(__dirname, '../src/app'),
             path.join(__dirname, '../src/assets'),
             'node_modules'
         ]

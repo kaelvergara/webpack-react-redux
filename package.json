@@ -11,7 +11,6 @@
     "start": "npm run clean && webpack-dev-server --progress --inline --hot --config config/webpack.config.dev.js",
     "start:nolint": "cross-env DISABLE_LINT=true npm run start",
     "clean": "rimraf dist"
-
   },
   "keywords": [],
   "author": "",

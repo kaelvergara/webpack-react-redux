@@ -5,6 +5,7 @@ const Home = asyncComponent(() => System.import('routes/Home').then(module => mo
 const NestedRoute = asyncComponent(() => System.import('routes/NestedRoute').then(module => module.default));
 const Form = asyncComponent(() => System.import('routes/NestedRoute/routes/Form').then(module => module.default));
 const Table = asyncComponent(() => System.import('routes/NestedRoute/routes/Table').then(module => module.default));
+const ReduxExample = asyncComponent(() => System.import('routes/ReduxExample').then(module => module.default));
 
 export default [
     {
@@ -19,7 +20,8 @@ export default [
                     {path: '/nested-route/form', component: Form},
                     {path: '/nested-route/table', component: Table}
                 ]
-            }
+            },
+            {path: '/redux-example', component: ReduxExample},
         ]
     }
 ];

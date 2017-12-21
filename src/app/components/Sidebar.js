@@ -10,6 +10,7 @@ export default class Sidebar extends React.PureComponent {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/nested-route">Nested Route</Link></li>
+                        <li><Link to="/redux-example">Redux Example</Link></li>
                     </ul>
                 </div>
             </div>

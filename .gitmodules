@@ -1,0 +1,3 @@
+[submodule "vuejs-webpack-boiler-plate"]
+	path = vuejs-webpack-boiler-plate
+	url = https://github.com/kaelvergara/vuejs-webpack-boiler-plate.git
